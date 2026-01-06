@@ -2,6 +2,9 @@
 const unlockTime = new Date('2026-03-09T00:01:00').getTime();
 const lockTime = new Date('2026-03-09T00:55:00').getTime();
 
+// Calculate the start time for progress calculation (e.g., from now or a specific date)
+const progressStartTime = new Date('2026-01-06T00:00:00').getTime(); // Current date
+
 // Get page elements
 const lockPage = document.getElementById('lockPage');
 const contentPage = document.getElementById('contentPage');
@@ -13,6 +16,7 @@ const hoursEl = document.getElementById('hours');
 const minutesEl = document.getElementById('minutes');
 const secondsEl = document.getElementById('seconds');
 const timeLeftEl = document.getElementById('timeLeft');
+const progressFillEl = document.getElementById('progressFill');
 
 // Function to pad numbers with leading zero
 function padNumber(num) {
@@ -72,6 +76,15 @@ function updateCountdown() {
         hoursEl.textContent = padNumber(hours);
         minutesEl.textContent = padNumber(minutes);
         secondsEl.textContent = padNumber(seconds);
+        
+        // Calculate and update progress bar (percentage of time passed)
+        const totalWaitTime = unlockTime - progressStartTime;
+        const timePassed = now - progressStartTime;
+        const progressPercentage = Math.min((timePassed / totalWaitTime) * 100, 100);
+        
+        if (progressFillEl) {
+            progressFillEl.style.width = progressPercentage.toFixed(2) + '%';
+        }
         
         // Update every second
         setTimeout(updateCountdown, 1000);

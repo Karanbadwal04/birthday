@@ -7,12 +7,14 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    min-height: 100vh;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
     overflow: hidden;
+    margin: 0;
+    padding: 0;
 }
 
 body::before {
@@ -24,6 +26,8 @@ body::before {
         radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
         radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
     animation: backgroundMove 20s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 0;
 }
 
 @keyframes backgroundMove {
@@ -203,9 +207,18 @@ body::before {
     position: relative;
     z-index: 1;
     text-align: center;
-    padding: 40px;
+    padding: 20px;
     max-width: 900px;
     width: 90%;
+    max-height: 95vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+}
+
+.container::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
 }
 
 .page {
@@ -219,6 +232,41 @@ body::before {
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
+}
+
+/* Lock Card with Glassmorphism */
+.lock-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border-radius: 30px;
+    padding: 50px 40px;
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.lock-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent 30%,
+        rgba(255, 255, 255, 0.1) 50%,
+        transparent 70%
+    );
+    animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+    100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
 }
 
 .lock-icon, .unlock-icon, .expired-icon {
@@ -237,6 +285,27 @@ body::before {
     font-weight: bold;
     margin-bottom: 15px;
     text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+.title--shine {
+    background: linear-gradient(
+        90deg,
+        #fff 0%,
+        #ffd700 25%,
+        #fff 50%,
+        #ffd700 75%,
+        #fff 100%
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shine 3s linear infinite;
+}
+
+@keyframes shine {
+    to { background-position: 200% center; }
 }
 
 .subtitle {
@@ -260,13 +329,36 @@ body::before {
     padding: 30px 25px;
     border-radius: 15px;
     min-width: 120px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.2),
+        0 0 20px rgba(255, 215, 0, 0.3);
     border: 1px solid rgba(255, 255, 255, 0.3);
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.time-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    animation: boxShine 2s infinite;
+}
+
+@keyframes boxShine {
+    0%, 100% { left: -100%; }
+    50% { left: 100%; }
 }
 
 .time-box:hover {
-    transform: translateY(-5px);
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 
+        0 12px 40px rgba(0, 0, 0, 0.3),
+        0 0 30px rgba(255, 215, 0, 0.5);
 }
 
 .time-value {
@@ -282,6 +374,78 @@ body::before {
     text-transform: uppercase;
     letter-spacing: 2px;
     opacity: 0.8;
+}
+
+/* Progress Bar */
+.progress {
+    margin: 40px 0;
+    text-align: center;
+}
+
+.progress-label {
+    font-size: 16px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    opacity: 0.9;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+#progressFill {
+    display: block;
+    height: 100%;
+    background: linear-gradient(90deg, #ffd700, #ffed4e, #ffd700);
+    background-size: 200% 100%;
+    border-radius: 10px;
+    width: 0%;
+    transition: width 1s ease;
+    animation: progressShine 2s linear infinite;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+}
+
+@keyframes progressShine {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+}
+
+/* Decorative Waves */
+.decor-waves {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="rgba(255,255,255,0.1)"/></svg>') repeat-x;
+    animation: wave 15s linear infinite;
+}
+
+.wave2 {
+    animation: wave 20s linear infinite;
+    opacity: 0.5;
+}
+
+@keyframes wave {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
 }
 
 /* Unlock Info Styles */

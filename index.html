@@ -29,33 +29,47 @@
     <div class="container">
         <!-- Lock Page (shown before March 9, 2026 12:01 AM) -->
         <div id="lockPage" class="page">
-            <div class="lock-icon">🔒</div>
-            <h1 class="title">Something Magical Awaits</h1>
-            <p class="subtitle">A special moment is being prepared just for you...</p>
-            
-            <div class="countdown">
-                <div class="time-box">
-                    <span class="time-value" id="days">00</span>
-                    <span class="time-label">Days</span>
+            <div class="lock-card">
+                <div class="lock-icon">🔒</div>
+                <h1 class="title title--shine">Something Magical Awaits</h1>
+                <p class="subtitle">A special moment is being prepared just for you...</p>
+
+                <div class="countdown">
+                    <div class="time-box">
+                        <span class="time-value" id="days">00</span>
+                        <span class="time-label">Days</span>
+                    </div>
+                    <div class="time-box">
+                        <span class="time-value" id="hours">00</span>
+                        <span class="time-label">Hours</span>
+                    </div>
+                    <div class="time-box">
+                        <span class="time-value" id="minutes">00</span>
+                        <span class="time-label">Minutes</span>
+                    </div>
+                    <div class="time-box">
+                        <span class="time-value" id="seconds">00</span>
+                        <span class="time-label">Seconds</span>
+                    </div>
                 </div>
-                <div class="time-box">
-                    <span class="time-value" id="hours">00</span>
-                    <span class="time-label">Hours</span>
+
+                <div class="progress">
+                    <div class="progress-label">Time to unlock</div>
+                    <div class="progress-bar">
+                        <span id="progressFill"></span>
+                    </div>
                 </div>
-                <div class="time-box">
-                    <span class="time-value" id="minutes">00</span>
-                    <span class="time-label">Minutes</span>
-                </div>
-                <div class="time-box">
-                    <span class="time-value" id="seconds">00</span>
-                    <span class="time-label">Seconds</span>
+
+                <div class="unlock-info">
+                    <p class="message">Every moment brings us closer to something beautiful...</p>
+                    <p class="message">Time moves forward, and with it, surprises unfold.</p>
+                    <p class="message">The best things in life are worth waiting for.</p>
                 </div>
             </div>
-            
-            <div class="unlock-info">
-                <p class="message">Every moment brings us closer to something beautiful...</p>
-                <p class="message">Time moves forward, and with it, surprises unfold.</p>
-                <p class="message">The best things in life are worth waiting for.</p>
+
+            <div class="decor-waves" aria-hidden="true">
+                <span class="wave"></span>
+                <span class="wave wave2"></span>
             </div>
         </div>
 
