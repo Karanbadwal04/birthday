@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔒 Something Special is Coming...</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Floating Elements -->
+    <div class="floating-container">
+        <div class="floating-element">✨</div>
+        <div class="floating-element">💫</div>
+        <div class="floating-element">⭐</div>
+        <div class="floating-element">🌟</div>
+        <div class="floating-element">💖</div>
+        <div class="floating-element">🎈</div>
+        <div class="floating-element">🎀</div>
+        <div class="floating-element">🌸</div>
+        <div class="floating-element">🦋</div>
+        <div class="floating-element">🌺</div>
+    </div>
+    
+    <!-- Flying Butterfly -->
+    <div class="butterfly-container">
+        <div class="butterfly">🦋</div>
+    </div>
+    
+    <div class="container">
+        <!-- Lock Page (shown before March 9, 2026 12:01 AM) -->
+        <div id="lockPage" class="page">
+            <div class="lock-icon">🔒</div>
+            <h1 class="title">Something Magical Awaits</h1>
+            <p class="subtitle">A special moment is being prepared just for you...</p>
+            
+            <div class="countdown">
+                <div class="time-box">
+                    <span class="time-value" id="days">00</span>
+                    <span class="time-label">Days</span>
+                </div>
+                <div class="time-box">
+                    <span class="time-value" id="hours">00</span>
+                    <span class="time-label">Hours</span>
+                </div>
+                <div class="time-box">
+                    <span class="time-value" id="minutes">00</span>
+                    <span class="time-label">Minutes</span>
+                </div>
+                <div class="time-box">
+                    <span class="time-value" id="seconds">00</span>
+                    <span class="time-label">Seconds</span>
+                </div>
+            </div>
+            
+            <div class="unlock-info">
+                <p class="message">Every moment brings us closer to something beautiful...</p>
+                <p class="message">Time moves forward, and with it, surprises unfold.</p>
+                <p class="message">The best things in life are worth waiting for.</p>
+            </div>
+        </div>
+
+        <!-- Content Page (shown between 12:01 AM - 12:55 AM on March 9, 2026) -->
+        <div id="contentPage" class="page hidden">
+            <div class="unlock-icon">🎊</div>
+            <h1 class="title">Welcome to This Special Moment!</h1>
+            <p class="subtitle">The wait is over... ✨</p>
+            
+            <div class="content-area">
+                <p class="special-message">This is your special space!</p>
+                <p class="note">📝 You can add your content here later...</p>
+            </div>
+            
+            <div class="time-remaining">
+                <p>⏰ Time Remaining: <span id="timeLeft">54 minutes</span></p>
+            </div>
+        </div>
+
+        <!-- Expired Page (shown after 12:55 AM) -->
+        <div id="expiredPage" class="page hidden">
+            <div class="expired-icon">🕐</div>
+            <h1 class="title">The Moment Has Passed</h1>
+            <p class="subtitle">But the memory remains forever... 💫</p>
+            
+            <div class="expired-message">
+                <p>This special moment was available on</p>
+                <p class="date-text">March 9, 2026</p>
+                <p class="time-text">12:01 AM - 12:55 AM</p>
+                <p class="closing-note">Some moments are fleeting, but their beauty lasts forever.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
