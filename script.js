@@ -1,6 +1,6 @@
 // Set the unlock and lock times
 const unlockTime = new Date('2026-03-09T00:01:00').getTime();
-const lockTime = new Date('2026-03-09T00:55:00').getTime();
+const lockTime = new Date('2026-03-09T23:56:00').getTime(); // 23 hours 55 minutes window
 
 // Calculate the start time for progress calculation (e.g., from now or a specific date)
 const progressStartTime = new Date('2026-01-06T00:00:00').getTime(); // Current date

@@ -7,23 +7,80 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Floating Elements -->
-    <div class="floating-container">
-        <div class="floating-element">✨</div>
-        <div class="floating-element">💫</div>
-        <div class="floating-element">⭐</div>
-        <div class="floating-element">🌟</div>
-        <div class="floating-element">💖</div>
-        <div class="floating-element">🎈</div>
-        <div class="floating-element">🎀</div>
-        <div class="floating-element">🌸</div>
-        <div class="floating-element">🦋</div>
-        <div class="floating-element">🌺</div>
+    <!-- Magical Particle System -->
+    <div class="particle-system">
+        <!-- Orbiting Particles -->
+        <div class="orbit-container">
+            <div class="orbit-particle">✨</div>
+            <div class="orbit-particle">💫</div>
+            <div class="orbit-particle">⭐</div>
+            <div class="orbit-particle">🌟</div>
+        </div>
+        
+        <!-- Shooting Stars -->
+        <div class="shooting-stars">
+            <div class="shooting-star"></div>
+            <div class="shooting-star"></div>
+            <div class="shooting-star"></div>
+        </div>
+        
+        <!-- Falling Stars -->
+        <div class="falling-stars">
+            <div class="falling-star">⭐</div>
+            <div class="falling-star">✨</div>
+            <div class="falling-star">🌟</div>
+            <div class="falling-star">⭐</div>
+            <div class="falling-star">✨</div>
+            <div class="falling-star">🌟</div>
+            <div class="falling-star">⭐</div>
+            <div class="falling-star">✨</div>
+        </div>
+        
+        <!-- Floating Sparkles -->
+        <div class="sparkle-container">
+            <div class="sparkle">💖</div>
+            <div class="sparkle">🎀</div>
+            <div class="sparkle">🌸</div>
+            <div class="sparkle">🌺</div>
+            <div class="sparkle">✨</div>
+            <div class="sparkle">💫</div>
+        </div>
+        
+        <!-- Glowing Orbs -->
+        <div class="glow-orbs">
+            <div class="glow-orb orb-1"></div>
+            <div class="glow-orb orb-2"></div>
+            <div class="glow-orb orb-3"></div>
+        </div>
     </div>
     
     <!-- Flying Butterfly -->
     <div class="butterfly-container">
         <div class="butterfly">🦋</div>
+    </div>
+    
+    <!-- Flying Balloons -->
+    <div class="balloons-container">
+        <div class="balloon balloon-red">
+            <div class="balloon-body"></div>
+            <div class="balloon-string"></div>
+        </div>
+        <div class="balloon balloon-blue">
+            <div class="balloon-body"></div>
+            <div class="balloon-string"></div>
+        </div>
+        <div class="balloon balloon-yellow">
+            <div class="balloon-body"></div>
+            <div class="balloon-string"></div>
+        </div>
+        <div class="balloon balloon-pink">
+            <div class="balloon-body"></div>
+            <div class="balloon-string"></div>
+        </div>
+        <div class="balloon balloon-green">
+            <div class="balloon-body"></div>
+            <div class="balloon-string"></div>
+        </div>
     </div>
     
     <div class="container">
@@ -85,11 +142,11 @@
             </div>
             
             <div class="time-remaining">
-                <p>⏰ Time Remaining: <span id="timeLeft">54 minutes</span></p>
+                <p>⏰ Time Remaining: <span id="timeLeft">23 hours 55 minutes</span></p>
             </div>
         </div>
 
-        <!-- Expired Page (shown after 12:55 AM) -->
+        <!-- Expired Page (shown after March 9, 2026 11:56 PM) -->
         <div id="expiredPage" class="page hidden">
             <div class="expired-icon">🕐</div>
             <h1 class="title">The Moment Has Passed</h1>
@@ -98,9 +155,13 @@
             <div class="expired-message">
                 <p>This special moment was available on</p>
                 <p class="date-text">March 9, 2026</p>
-                <p class="time-text">12:01 AM - 12:55 AM</p>
+                <p class="time-text">12:01 AM - 11:56 PM</p>
                 <p class="closing-note">Some moments are fleeting, but their beauty lasts forever.</p>
             </div>
+            
+            <a href="https://example.com" class="redirect-button" id="redirectBtn">
+                ✨ Continue the Journey ✨
+            </a>
         </div>
     </div>
 
